@@ -68,11 +68,9 @@ main {
 
 #left-player1 {
     background: #189b9b;
-
 }
 #right-player2 {
     background: #127a7a;
-    
 }
 .player1-win {
     animation: mymove1 3s;
@@ -85,12 +83,12 @@ main {
     50% {
         background-color: #092c2c;
     }
-    100%{
+    100% {
         background-color: #189b9b;
     }
 }
 .player2-win {
-    animation: mymove2 3s ;
+    animation: mymove1 3s;
 }
 
 @keyframes mymove2 {
@@ -100,7 +98,7 @@ main {
     50% {
         background-color: #092c2c;
     }
-    100%{
+    100% {
         background-color: #127a7a;
     }
 }
@@ -233,7 +231,7 @@ button {
     font-size: 23px;
 }
 
-.end-game-msg{
+.end-game-msg {
     visibility: hidden;
     color: #fff;
 }
