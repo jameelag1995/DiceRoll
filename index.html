@@ -7,31 +7,86 @@
         <link rel="stylesheet" href="./CSS/styles.css" />
     </head>
     <body>
-        <aside><h1>left side</h1></aside>
+        <aside id="left-aside"><h1>left side</h1></aside>
         <main>
             <div class="popup" id="start-screen">
                 <div class="top-container">
                     <h1>Game Instructions</h1>
-                    <br />
+
                     <ul>
-                        <li><h3>some instruction</h3></li>
-                        <li><h3>some instruction</h3></li>
-                        <li><h3>some instruction</h3></li>
-                        <li><h3>some instruction</h3></li>
-                        <li><h3>some instruction</h3></li>
+                        <li>The game has 2 players, playing in rounds.</li>
+                        <li>
+                            In each turn, a player rolls 2 dice as many times as
+                            he wishes.
+                        </li>
+                        <li>
+                            Each result will get added to current player round’s
+                            score.
+                        </li>
+                        <li>
+                            if the player rolls a double six all his round’s
+                            score gets lost. After that, it's the next player’s
+                            turn.
+                        </li>
+                        <li>
+                            A player can choose to ‘Hold’, which means that his
+                            round’s score gets added to his global score. After
+                            that, it's the next player's turn.
+                        </li>
+                        <li>
+                            The first player to reach target score points wins.
+                        </li>
                     </ul>
                 </div>
                 <div class="bottom-container">
-                    <h1>Please select a target score</h1>
-                    <input type="number" id="score-target" value="50" min="2">
-                    <button><h2>Start Game</h2></button>
+                    <h2 id="start-msg">Please select a target score</h2>
+                    <input
+                        type="number"
+                        id="target-score-input"
+                        value="50"
+                        min="2"
+                    />
+                    <button class="start-button">START GAME</button>
                 </div>
             </div>
-            <div class="left-player1"><h1>left player</h1></div>
-            <div class="right-player2"><h1>right player</h1></div>
+            <div class="game-ui">
+                <div class="player" id="left-player1">
+                    <div class="info" id="player1-info">
+                        <h1 class="tag">PLAYER 1</h1>
+                        <h1 class="score" id="player1-score">0</h1>
+                    </div>
+                    <p class="tag end-game-msg" id="player1-end-msg">
+                        You Won!
+                    </p>
+                    <div class="current" id="player1-current">
+                        <p>CURRENT</p>
+                        <p id="player1-current-score">0</p>
+                    </div>
+                </div>
+                <div class="functional">
+                    <button class="new-game-btn">NEW GAME</button>
+                    <div class="dice" id="dice-1"></div>
+                    <div class="dice" id="dice-2"></div>
+                    <button class="roll-dice-btn">ROLL DICE</button>
+                    <button class="hold-btn">HOLD</button>
+                </div>
+                <div class="player" id="right-player2">
+                    <div class="info" id="player2-info">
+                        <h1 class="tag">PLAYER 2</h1>
+                        <h1 class="score" id="player2-score">0</h1>
+                    </div>
+                    <p class="tag end-game-msg" id="player2-end-msg">
+                        You Won!
+                    </p>
+                    <div class="current" id="player2-current">
+                        <p>CURRENT</p>
+                        <p id="player2-current-score">0</p>
+                    </div>
+                </div>
+            </div>
             <div class="popup" id="end-screen"></div>
         </main>
-        <aside><h1>right side</h1></aside>
+        <aside id="right-aside"><h1>right side</h1></aside>
         <script src="./main.js"></script>
     </body>
 </html>
