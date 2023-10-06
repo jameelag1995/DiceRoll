@@ -70,7 +70,7 @@ targetScoreInput.focus();
 // start button events
 startButton.addEventListener("click", () => {
     targetScore = parseInt(targetScoreInput.value);
-    if (targetScore > 2) {
+    if (targetScore => 2) {
         playAudio.play();
         startScreen.style.display = "none";
         totalWinsP1.style.visibility = "visible";
