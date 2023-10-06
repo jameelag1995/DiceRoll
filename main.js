@@ -1,13 +1,16 @@
+/* -------------------------------------------------------------------------- */
+/*                               INITIALIZATION                               */
+/* -------------------------------------------------------------------------- */
 // audio
 let switchAudio = new Audio("./audio/switchplayer.mp3");
 let diceRollAudio = new Audio("./audio/rolling-dice.mp3");
 let winAudio = new Audio("./audio/winalert.mp3");
 let popupAudio = new Audio("./audio/popupalert.mp3");
 let playAudio = new Audio("./audio/play.mp3");
-const audio = document.getElementById('bgaudio');
+const bgAudio = document.getElementById("bgaudio");
 
 // Get the mute button
-const muteButton = document.getElementById('muteButton');
+const muteButton = document.getElementById("muteButton");
 // Initialize a variable to track whether the sound is muted
 let isMuted = false;
 
@@ -107,10 +110,9 @@ holdButton.addEventListener("click", () => {
     if (gameOn === false) {
         return;
     }
-    switchAudio.play();
-    playTurn();
     updateScores();
     checkAndAnnounceWinner();
+    playTurn();
 });
 
 // roll button functionality
@@ -129,7 +131,7 @@ twoSixPopUp.addEventListener("click", () => {
 });
 
 // mute button functionality
-muteButton.addEventListener('click', toggleMute);
+muteButton.addEventListener("click", toggleMute);
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -165,6 +167,7 @@ function playTurn() {
         player2.style.background = "#189b9b";
         playerTurn = 2;
     }
+    switchAudio.play();
 }
 
 // function that updates scores and display
@@ -256,13 +259,12 @@ function roll() {
 function toggleMute() {
     if (isMuted) {
         // Unmute the audio
-        audio.muted = false;
-        muteButton.textContent = 'Mute';
+        bgAudio.muted = false;
+        muteButton.textContent = "Mute";
     } else {
         // Mute the audio
-        audio.muted = true;
-        muteButton.textContent = 'Unmute';
+        bgAudio.muted = true;
+        muteButton.textContent = "Unmute";
     }
     isMuted = !isMuted;
 }
-

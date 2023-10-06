@@ -268,7 +268,7 @@ audio {
     color: #fff;
     visibility: hidden;
 }
-#muteButton{
+#muteButton {
     position: absolute;
     width: 100px;
     height: 60px;
