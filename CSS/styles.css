@@ -252,6 +252,7 @@ audio {
     bottom: 20px;
     left: 10px;
     width: 90%;
+    visibility: hidden;
 }
 .two-six-popup {
     width: 600px;
@@ -266,4 +267,11 @@ audio {
     padding: 0 10px;
     color: #fff;
     visibility: hidden;
+}
+#muteButton{
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    left: 40%;
+    top: 100px;
 }

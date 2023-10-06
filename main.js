@@ -4,6 +4,13 @@ let diceRollAudio = new Audio("./audio/rolling-dice.mp3");
 let winAudio = new Audio("./audio/winalert.mp3");
 let popupAudio = new Audio("./audio/popupalert.mp3");
 let playAudio = new Audio("./audio/play.mp3");
+const audio = document.getElementById('bgaudio');
+
+// Get the mute button
+const muteButton = document.getElementById('muteButton');
+// Initialize a variable to track whether the sound is muted
+let isMuted = false;
+
 // Handle Target Score
 let targetScore = 0;
 
@@ -65,12 +72,13 @@ const twoSixPopUpMsg = document.querySelector("#popup-msg");
 targetScoreInput.focus();
 
 /* -------------------------------------------------------------------------- */
-/*                                   Events                                   */
+/*                               EVENT LISTENERS                              */
 /* -------------------------------------------------------------------------- */
-// start button events
+
+// start button functionality
 startButton.addEventListener("click", () => {
     targetScore = parseInt(targetScoreInput.value);
-    if (targetScore => 2) {
+    if (targetScore >= 2) {
         playAudio.play();
         startScreen.style.display = "none";
         totalWinsP1.style.visibility = "visible";
@@ -79,6 +87,7 @@ startButton.addEventListener("click", () => {
         startMsg.innerText = `Please select a target score, Value must be larger than 2`;
     }
 });
+
 // new game button functionality
 newGameButton.addEventListener("click", () => {
     playAudio.play();
@@ -92,6 +101,7 @@ newGameButton.addEventListener("click", () => {
     startScreen.style.display = "flex";
     instructions.style.visibility = "hidden";
 });
+
 // hold button functionality
 holdButton.addEventListener("click", () => {
     if (gameOn === false) {
@@ -102,6 +112,7 @@ holdButton.addEventListener("click", () => {
     updateScores();
     checkAndAnnounceWinner();
 });
+
 // roll button functionality
 rollDiceButton.addEventListener("click", () => {
     if (gameOn === false) {
@@ -116,6 +127,9 @@ twoSixPopUp.addEventListener("click", () => {
     twoSixPopUp.style.visibility = "hidden";
     gameOn = true;
 });
+
+// mute button functionality
+muteButton.addEventListener('click', toggleMute);
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -237,3 +251,18 @@ function roll() {
     player1CurrentScoreDisp.innerText = player1CurrentScore;
     player2CurrentScoreDisp.innerText = player2CurrentScore;
 }
+
+// Function to toggle sound mute/unmute
+function toggleMute() {
+    if (isMuted) {
+        // Unmute the audio
+        audio.muted = false;
+        muteButton.textContent = 'Mute';
+    } else {
+        // Mute the audio
+        audio.muted = true;
+        muteButton.textContent = 'Unmute';
+    }
+    isMuted = !isMuted;
+}
+
