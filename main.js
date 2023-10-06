@@ -8,10 +8,15 @@ const newGameButton = document.querySelector(".new-game-btn");
 const startScreen = document.querySelector("#start-screen");
 const instructions = document.querySelector(".top-container");
 const startMsg = document.querySelector("#start-msg");
+const totalWinsP1 = document.querySelector('.total-wins-p1')
+const totalWinsP2 = document.querySelector('.total-wins-p2')
 startButton.addEventListener("click", () => {
     targetScore = parseInt(document.querySelector("#target-score-input").value);
     if (targetScore > 2) {
         startScreen.style.display = "none";
+        totalWinsP1.style.visibility = 'visible';
+        totalWinsP2.style.visibility = 'visible';
+
     } else {
         startMsg.innerText += `, Value must be larger than 2`;
     }
@@ -49,25 +54,32 @@ function reset() {
 }
 
 // in-Game elements
+// player 1
 const holdButton = document.querySelector(".hold-btn");
 const player1 = document.querySelector("#left-player1");
 const player1CurrentScoreDisp = document.querySelector(
     "#player1-current-score"
 );
 const player1TotalScoreDisp = document.querySelector("#player1-score");
+const player1EndMsg = document.querySelector("#player1-end-msg");
+const player1TotalWinsDisp = document.querySelector('#player1-total-wins');
+
+// player 2 
 const player2 = document.querySelector("#right-player2");
 const player2CurrentScoreDisp = document.querySelector(
     "#player2-current-score"
 );
 const player2TotalScoreDisp = document.querySelector("#player2-score");
-const player1EndMsg = document.querySelector("#player1-end-msg");
 const player2EndMsg = document.querySelector("#player2-end-msg");
+const player2TotalWinsDisp = document.querySelector('#player2-total-wins');
 
 let playerTurn = 1;
 let player1TotalScore = 0;
 let player1CurrentScore = 0;
+let player1TotalWins = 0;
 let player2TotalScore = 0;
 let player2CurrentScore = 0;
+let player2TotalWins = 0;
 let gameOn = true;
 
 // hold button functionality
@@ -107,18 +119,23 @@ function updateScores() {
 
 // function that check and announce the winner
 function checkAndAnnounceWinner() {
+    // if player1 hit the target or player2 passe the target announce player1 as winner
     if (player1TotalScore === targetScore || player2TotalScore > targetScore) {
         player1.classList.toggle("player-win");
         player1EndMsg.style.visibility = "visible";
         player1EndMsg.innerText = "You Won!";
+        player1TotalWins +=1;
+        player1TotalWinsDisp.innerText = player1TotalWins;
         player2EndMsg.style.visibility = "visible";
         player2EndMsg.innerText = "Passed the target score";
         gameOn = false;
     }
     if (player2TotalScore === targetScore || player1TotalScore > targetScore) {
         player2.classList.toggle("player-win");
-        player2EndMsg.innerText = "You Won!";
         player2EndMsg.style.visibility = "visible";
+        player2EndMsg.innerText = "You Won!";
+        player2TotalWins +=1;
+        player2TotalWinsDisp.innerText = player2TotalWins;
         player1EndMsg.style.visibility = "visible";
         player1EndMsg.innerText = "Passed the target score";
         gameOn = false;
