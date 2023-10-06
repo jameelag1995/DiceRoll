@@ -46,12 +46,24 @@
                         value="100"
                         min="2"
                     />
-                    <button class="start-button">START GAME</button>
+                    <button class="start-button">
+                        <img
+                            src="./Img/playicon.png"
+                            width="30px"
+                            height="30px"
+                        />
+                        START GAME
+                    </button>
                 </div>
             </div>
             <div class="game-ui">
                 <div class="player" id="left-player1">
-                    <div class="total-wins-p1"><h2>Total Wins</h2><h2 class="games-win-total" id="player1-total-wins">0</h2></div>
+                    <div class="total-wins-p1">
+                        <h2>Total Wins</h2>
+                        <h2 class="games-win-total" id="player1-total-wins">
+                            0
+                        </h2>
+                    </div>
                     <div class="info" id="player1-info">
                         <h1 class="tag">PLAYER 1</h1>
                         <h1 class="score" id="player1-score">0</h1>
@@ -63,14 +75,44 @@
                     </div>
                 </div>
                 <div class="functional">
-                    <button class="new-game-btn">NEW GAME</button>
+                    <div class="two-six-popup">
+                        <img
+                            src="./Img/theoffice.gif"
+                            width="200px"
+                            height="200px"
+                        /><span id="popup-msg"></span>
+                    </div>
+                    <button class="new-game-btn">
+                        <img
+                            src="./Img/newgameicon.png"
+                            width="30px"
+                            height="30px"
+                        />NEW GAME
+                    </button>
                     <div class="dice" id="dice-1"></div>
                     <div class="dice" id="dice-2"></div>
-                    <button class="roll-dice-btn">ROLL DICE</button>
-                    <button class="hold-btn">HOLD</button>
+                    <button class="roll-dice-btn">
+                        <img
+                            src="./Img/dicebtnicon.png"
+                            width="30px"
+                            height="30px"
+                        />ROLL DICE
+                    </button>
+                    <button class="hold-btn">
+                        <img
+                            src="./Img/switchicon.png"
+                            width="30px"
+                            height="30px"
+                        />HOLD
+                    </button>
                 </div>
                 <div class="player" id="right-player2">
-                    <div class="total-wins-p2"><h2>Total Wins</h2><h2 class="games-win-total" id="player2-total-wins">0</h2></div>
+                    <div class="total-wins-p2">
+                        <h2>Total Wins</h2>
+                        <h2 class="games-win-total" id="player2-total-wins">
+                            0
+                        </h2>
+                    </div>
                     <div class="info" id="player2-info">
                         <h1 class="tag">PLAYER 2</h1>
                         <h1 class="score" id="player2-score">0</h1>
@@ -83,7 +125,17 @@
                 </div>
             </div>
         </main>
-        <aside id="right-aside"></aside>
+        <aside id="right-aside">
+            <iframe
+                src="silence.mp3"
+                allow="autoplay"
+                id="audio"
+                style="display: none"
+            ></iframe>
+            <audio controls autoplay loop>
+                <source src="./audio/in between.mp3" type="audio/mp3" />
+            </audio>
+        </aside>
         <script src="./main.js"></script>
     </body>
 </html>
