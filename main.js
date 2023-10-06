@@ -40,9 +40,9 @@ function reset() {
     player2TotalScoreDisp.innerText = player2TotalScore;
     player1CurrentScoreDisp.innerText = player1CurrentScore;
     player2CurrentScoreDisp.innerText = player2CurrentScore;
-    player1.classList.remove("player1-win");
+    player1.classList.remove("player-win");
     player1EndMsg.style.visibility = "hidden";
-    player2.classList.remove("player2-win");
+    player2.classList.remove("player-win");
     player2EndMsg.style.visibility = "hidden";
     player1EndMsg.innerText = "";
     player2EndMsg.innerText = "";
@@ -108,7 +108,7 @@ function updateScores() {
 // function that check and announce the winner
 function checkAndAnnounceWinner() {
     if (player1TotalScore === targetScore || player2TotalScore > targetScore) {
-        player1.classList.add("player1-win");
+        player1.classList.toggle("player-win");
         player1EndMsg.style.visibility = "visible";
         player1EndMsg.innerText = "You Won!";
         player2EndMsg.style.visibility = "visible";
@@ -116,7 +116,7 @@ function checkAndAnnounceWinner() {
         gameOn = false;
     }
     if (player2TotalScore === targetScore || player1TotalScore > targetScore) {
-        player2.classList.add("player2-win");
+        player2.classList.toggle("player-win");
         player2EndMsg.innerText = "You Won!";
         player2EndMsg.style.visibility = "visible";
         player1EndMsg.style.visibility = "visible";

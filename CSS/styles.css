@@ -72,36 +72,25 @@ main {
 #right-player2 {
     background: #127a7a;
 }
-.player1-win {
-    animation: mymove1 3s;
+.player-win {
+    animation: mymove1 5s infinite;
+    background-color: #244949;
 }
 
+
 @keyframes mymove1 {
-    0% {
-        background-color: #189b9b;
+    from {
+        background-color: #2deeee;
     }
-    50% {
-        background-color: #092c2c;
-    }
-    100% {
-        background-color: #189b9b;
+
+    to {
+        background-color: #244949;
     }
 }
 .player2-win {
     animation: mymove1 3s;
 }
 
-@keyframes mymove2 {
-    0% {
-        background-color: #127a7a;
-    }
-    50% {
-        background-color: #092c2c;
-    }
-    100% {
-        background-color: #127a7a;
-    }
-}
 .tag {
     color: rgb(49, 49, 49);
     font-weight: 400;
@@ -234,4 +223,7 @@ button {
 .end-game-msg {
     visibility: hidden;
     color: #fff;
+    background: #333333af;
+    border-radius: 10px;
+    padding: 4px 8px;
 }
