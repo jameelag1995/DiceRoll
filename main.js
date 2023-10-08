@@ -56,6 +56,9 @@ const player2EndMsg = document.querySelector("#player2-end-msg");
 const player2TotalWinsDisp = document.querySelector("#player2-total-wins");
 const totalWinsP2 = document.querySelector(".total-wins-p2");
 
+// variable to check if this is the first turn of the current player so switching turns won't be possible
+let firstTurn = true;
+
 // target score input
 const targetScoreInput = document.querySelector("#target-score-input");
 // Dice
@@ -108,9 +111,10 @@ newGameButton.addEventListener("click", () => {
 
 // hold button functionality
 holdButton.addEventListener("click", () => {
-    if (gameOn === false) {
+    if (gameOn === false || firstTurn === true) {
         return;
     }
+    firstTurn = true;
     updateScores();
     checkAndAnnounceWinner();
     playTurn();
@@ -123,6 +127,7 @@ rollDiceButton.addEventListener("click", () => {
     }
     diceRollAudio.play();
     roll();
+    firstTurn = false;
 });
 
 // two six popup functionality - click on the popup to continue playing

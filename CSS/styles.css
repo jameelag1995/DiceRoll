@@ -270,9 +270,9 @@ audio {
 }
 #playbgmusic {
     position: absolute;
-    width: 60%;
+    width: 80%;
     height: 60px;
-    left: 20%;
+    left: 10%;
     top: 100px;
     font-size: 23px;
 }
