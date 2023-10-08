@@ -144,12 +144,15 @@ playMusicButton.addEventListener("click", toggleBgSound);
 /* -------------------------------------------------------------------------- */
 // reset the game variables and html elements
 function reset() {
+    // reset variables
     playerTurn = 1;
     player1TotalScore = 0;
     player1CurrentScore = 0;
     player2TotalScore = 0;
     player2CurrentScore = 0;
     gameOn = true;
+    firstTurn = true;
+    // reset html elements 
     player1TotalScoreDisp.innerText = player1TotalScore;
     player2TotalScoreDisp.innerText = player2TotalScore;
     player1CurrentScoreDisp.innerText = player1CurrentScore;
@@ -161,6 +164,7 @@ function reset() {
     player1EndMsg.innerText = "";
     player2EndMsg.innerText = "";
     twoSixPopUp.style.visibility = "hidden";
+    
 }
 
 // function that switches turns
