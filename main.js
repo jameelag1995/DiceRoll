@@ -154,6 +154,7 @@ function reset() {
     player2EndMsg.style.visibility = "hidden";
     player1EndMsg.innerText = "";
     player2EndMsg.innerText = "";
+    twoSixPopUp.style.visibility = "hidden";
 }
 
 // function that switches turns
@@ -220,9 +221,9 @@ function roll() {
     // generate random number for the first dice
     dice1Value = generateRandomDiceNumber();
     // change the img of the dice according to the generated dice1Value
-    dice1.style.backgroundImage = `url(../Img/dice-${dice1Value}.png)`;
+    dice1.style.backgroundImage = `url(./Img/dice-${dice1Value}.png)`;
     dice2Value = generateRandomDiceNumber();
-    dice2.style.backgroundImage = `url(../Img/dice-${dice2Value}.png)`;
+    dice2.style.backgroundImage = `url(./Img/dice-${dice2Value}.png)`;
     diceSum = dice1Value + dice2Value;
     // check if we got 6,6 (sum is 12)
     if (diceSum === 12) {
