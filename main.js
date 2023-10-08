@@ -9,10 +9,10 @@ let popupAudio = new Audio("./audio/popupalert.mp3");
 let playAudio = new Audio("./audio/play.mp3");
 const bgAudio = document.getElementById("bgaudio");
 
-// Get the mute button
-const muteButton = document.getElementById("muteButton");
+// select the play background music button
+const playMusicButton = document.querySelector("#playbgmusic");
 // Initialize a variable to track whether the sound is muted
-let isMuted = false;
+let isPlaying = false;
 
 // Handle Target Score
 let targetScore = 0;
@@ -70,10 +70,11 @@ const rollDiceButton = document.querySelector(".roll-dice-btn");
 // two six popup elements
 const twoSixPopUp = document.querySelector(".two-six-popup");
 const twoSixPopUpMsg = document.querySelector("#popup-msg");
+const closeTwoSixPopUp = document.querySelector(".close-popup");
 
 // focus on input target
 targetScoreInput.focus();
-
+// start background music
 /* -------------------------------------------------------------------------- */
 /*                               EVENT LISTENERS                              */
 /* -------------------------------------------------------------------------- */
@@ -87,7 +88,7 @@ startButton.addEventListener("click", () => {
         totalWinsP1.style.visibility = "visible";
         totalWinsP2.style.visibility = "visible";
     } else {
-        startMsg.innerText = `Please select a target score, Value must be larger than 2`;
+        startMsg.innerText = `Please select a target score, Value must be larger than 1`;
     }
 });
 
@@ -96,7 +97,7 @@ newGameButton.addEventListener("click", () => {
     playAudio.play();
     if (startMsg.innerText.length > 27) {
         const msgArr = startMsg.innerText.split(
-            ", Value must be larger than 2"
+            ", Value must be larger than 1"
         );
         startMsg.innerText = msgArr.join("");
     }
@@ -125,13 +126,13 @@ rollDiceButton.addEventListener("click", () => {
 });
 
 // two six popup functionality - click on the popup to continue playing
-twoSixPopUp.addEventListener("click", () => {
+closeTwoSixPopUp.addEventListener("click", () => {
     twoSixPopUp.style.visibility = "hidden";
     gameOn = true;
 });
 
 // mute button functionality
-muteButton.addEventListener("click", toggleMute);
+playMusicButton.addEventListener("click", toggleBgSound);
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -256,16 +257,16 @@ function roll() {
     player2CurrentScoreDisp.innerText = player2CurrentScore;
 }
 
-// Function to toggle sound mute/unmute
-function toggleMute() {
-    if (isMuted) {
-        // Unmute the audio
-        bgAudio.muted = false;
-        muteButton.textContent = "Mute";
+// Function to toggle sound play/pause
+function toggleBgSound() {
+    if (isPlaying) {
+        // Play audio
+        bgAudio.play();
+        playMusicButton.innerText = "Background Music: ON";
     } else {
-        // Mute the audio
-        bgAudio.muted = true;
-        muteButton.textContent = "Unmute";
+        // Pause audio
+        bgAudio.pause();
+        playMusicButton.innerText = "Background Music: OFF";
     }
-    isMuted = !isMuted;
+    isPlaying = !isPlaying;
 }

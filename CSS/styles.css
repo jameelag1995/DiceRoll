@@ -266,12 +266,19 @@ audio {
     border-radius: 10px;
     padding: 0 10px;
     color: #fff;
-    visibility: hidden;
+    visibility: visible;
 }
-#muteButton {
+#playbgmusic {
     position: absolute;
-    width: 100px;
+    width: 60%;
     height: 60px;
-    left: 40%;
+    left: 20%;
     top: 100px;
+    font-size: 23px;
+}
+.close-popup {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    cursor: pointer;
 }

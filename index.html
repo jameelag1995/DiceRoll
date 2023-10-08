@@ -3,6 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            href="./Img/dicebtnicon.png"
+            type="image/x-icon"
+        />
         <title>Dice Roll Game</title>
         <link rel="stylesheet" href="./CSS/styles.css" />
     </head>
@@ -76,6 +81,7 @@
                 </div>
                 <div class="functional">
                     <div class="two-six-popup">
+                        <div class="close-popup">x</div>
                         <img
                             src="./Img/theoffice.gif"
                             width="200px"
@@ -126,16 +132,11 @@
             </div>
         </main>
         <aside id="right-aside">
-            <iframe
-                src="./audio/silence.mp3"
-                allow="autoplay"
-                id="audio"
-                style="display: none"
-            ></iframe>
-            <audio id="bgaudio" controls autoplay loop>
+            <audio id="bgaudio" loop>
                 <source src="./audio/in between.mp3" type="audio/mp3" />
             </audio>
-            <button id="muteButton">Mute</button>
+
+            <button id="playbgmusic">Background Music: OFF</button>
         </aside>
         <script src="./main.js"></script>
     </body>
