@@ -2,6 +2,8 @@
 
 In this project, we will create a simple web-based "Roll the Dice" game. The game will allow users to roll two dice and display the results with audio and sound effects. Here are the steps and functionality of the project:
 
+-link: https://vermillion-paletas-4d1620.netlify.app/
+
 ## Project Steps
 
 1. **HTML Structure:**
